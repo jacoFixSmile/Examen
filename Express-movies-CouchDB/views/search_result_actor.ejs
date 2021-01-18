@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Movies IMDC</title>
+</head>
+<body>
+    <a href='/users/'>List</a>&nbsp;&nbsp;
+    <a href='/users/searchName'>Search on name</a>&nbsp;&nbsp;
+    <a href='/users/searchActorName'>Search on actor</a>&nbsp;&nbsp;
+  <h2>Result actor search</h2>
+  <br/><br/>
+  <p>
+     <span><b>Name: <%= products[0].key %> </b></span> <br/>
+    <% products.forEach(function(product) { %>
+        <span><b>Movie : </b><%= product.value %></span><br />
+
+    <% }) %>
+  </p>
+</body>
+</html>

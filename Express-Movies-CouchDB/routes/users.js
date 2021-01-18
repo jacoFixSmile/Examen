@@ -24,7 +24,10 @@ router.get('/add', function(req, res, next) {
 router.get('/searchName',function(req, res, next) {
   res.render('search.ejs', {});
 });
-/* FIND A PRODUCT */
+router.get('/searchActorName',function(req, res, next) {
+  res.render('searchActorName.ejs', {});
+});
+/* FIND A movie */
 router.post('/searchName', (req, res) => {
   console.log(DB_URL + DB_VIEWS + 'allMovies' + '?key="' + req.body.name + '"');
   console.log("post to search")
@@ -35,6 +38,24 @@ router.post('/searchName', (req, res) => {
         console.log('data well found')
         res.render('search_result.ejs', { products: response.data.rows[0].value.actors });
         console.log(response.data.rows[0].value.actors )
+      } else{
+        res.render('search_not_found.ejs', {})
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+})
+// find a actor
+router.post('/searchActorName', (req, res) => {
+  console.log(DB_URL + DB_VIEWS + 'allMovies' + '?key="' + req.body.name + '"');
+  console.log("post to search")
+  axios.get(DB_URL + DB_VIEWS + 'zoekFilmBijActeur' + '?key="' + req.body.name + '"')
+    .then(function (response) {
+      console.log(response.data.rows);
+      if(response.data.rows[0]){
+        console.log('data well found')
+        res.render('search_result_actor.ejs', { products: response.data.rows });
       } else{
         res.render('search_not_found.ejs', {})
       }

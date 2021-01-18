@@ -1,0 +1,16 @@
+Design document : _design/views
+index name : allMovies
+map Function : 
+    function (doc) {
+    emit(doc.name, doc);
+    }
+Design document : _design/views
+index name : zoekFilmBijActeur
+map Function : 
+function (doc, actors) {
+  
+ for (var x = 0, len = doc.actors.length; x < len; x++) {
+      emit(doc.actors[x], doc.name);
+   }  
+
+}

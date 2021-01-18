@@ -5,5 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
-
+router.get('/add', function(req, res, next) {
+  res.render('add.ejs', {});
+});
 module.exports = router;

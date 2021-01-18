@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Products</title>
+</head>
+<body>
+<div>
+  <h2>Add a product</h2>
+  <br/><br/>
+  <form action='/products/add' method='POST'>
+   <table>
+     <!--tr><td>ID : </td><td><input type='text' name='id'></td></tr-->
+     <tr><td>Name : </td><td><input type='text' name='name'></td></tr>
+     <tr><td>Brand : </td><td><input type='text' name='brand'></td></tr>
+     <tr><td>Description : </td><td><input type='text' name='description' size=100></td></tr>
+     <tr><td>Price : </td><td><input type='text' name='price'></td></tr>
+     <tr><td><button type='submit'>Add</button></td></tr>
+   </table>
+   <input type='hidden' name='type' value='product'>
+  </form>
+</div>
+</body>
+</html>

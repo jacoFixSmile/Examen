@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Products</title>
+</head>
+<body>
+  <h1>All products</h1>
+ <br/><br/>
+  <ul>
+  <% products.forEach(function(product) { %>
+    <li>
+      <span><b>ID : </b><%= product.id %></span><br />
+      <span><b>Name : </b><%= product.value.name %></span><br />
+      <span><b>Brand : </b><%= product.value.brand %></span><br />
+      <span><b>Description : </b><%= product.value.description %></span><br />
+      <span><b>Price : </b><%= product.value.price %></span><br />
+      <span><form action='/products/delete' method='POST'>
+        <span><input type='hidden' name='name' value='<%= product.value.name %>'></span>
+        <span><input type='hidden' name='_id' value='<%= product.value._id %>'></span>
+        <span><button type='submit'>Delete</button></span>
+      </form></span><br />
+      <a href='/products/add'>Add product</a>&nbsp;&nbsp;
+      <a href='/products/search'>Search product</a>&nbsp;&nbsp;
+      <a href='/products/edit?_id=<%= product.value._id %>'>Edit Product</a>  
+    </li>
+  <% }) %>
+  </ul>
+<br/>
+
+</body>
+</html>

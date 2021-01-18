@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Products</title>
+</head>
+<body>
+<div>
+  <h2>Edit a product</h2>
+  <br/><br/>
+  <form action='/products/edit' method='POST'>
+   <table>
+     <tr><td>Name : </td><td><input type='text' name='name' value='<%= product.name %>'></td></tr>
+     <tr><td>Brand : </td><td><input type='text' name='brand' value='<%= product.brand %>'></td></tr>
+     <tr><td>Description : </td><td><input type='text' name='description' size=200 value='<%= product.description %>'></td></tr>
+     <tr><td>Price : </td><td><input type='text' name='price' value='<%= product.price %>'></td></tr>
+     <tr><td><button type='submit'>Update</button></td></tr>
+   </table>
+   <input type='hidden' name='type' value='product'>
+   <input type='hidden' name='_id' value='<%= product._id %>'>
+   <input type='hidden' name='_rev' value='<%= product._rev %>'>
+  </form>
+</div>
+</body>
+</html>

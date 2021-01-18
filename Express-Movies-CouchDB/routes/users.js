@@ -21,4 +21,26 @@ router.get('/', function(req, res, next) {
 router.get('/add', function(req, res, next) {
   res.render('add.ejs', {});
 });
+router.get('/searchName',function(req, res, next) {
+  res.render('search.ejs', {});
+});
+/* FIND A PRODUCT */
+router.post('/searchName', (req, res) => {
+  console.log(DB_URL + DB_VIEWS + 'allMovies' + '?key="' + req.body.name + '"');
+  console.log("post to search")
+  axios.get(DB_URL + DB_VIEWS + 'allMovies' + '?key="' + req.body.name + '"')
+    .then(function (response) {
+      console.log(response.data.rows[0]);
+      if(response.data.rows[0]){
+        console.log('data well found')
+        res.render('search_result.ejs', { products: response.data.rows[0].value.actors });
+        console.log(response.data.rows[0].value.actors )
+      } else{
+        res.render('search_not_found.ejs', {})
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+})
 module.exports = router;

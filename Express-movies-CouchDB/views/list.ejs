@@ -7,12 +7,16 @@
 <body>
   <h1>All products</h1>
  <br/><br/>
+ <a href='/users/'>List</a>&nbsp;&nbsp;
+ <a href='/users/searchName'>Search on name</a>&nbsp;&nbsp;
+ <a href='/users/searchName'>Search on actor</a>&nbsp;&nbsp;
   <ul>
   <% products.forEach(function(product) { %>
     <li>
       <span><b>ID : </b><%= product.id %></span><br />
       <span><b>Name : </b><%= product.value.name %></span><br />
-    
+      <span><b>Actors : </b><%= product.value.actors %></span><br />
+
     </li>
       <span></span><br />
     </li>

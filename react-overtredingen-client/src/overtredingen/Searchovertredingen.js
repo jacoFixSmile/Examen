@@ -8,7 +8,9 @@ export default class SearchOvertredingen extends Component {
   constructor(props) {  
       super(props)
       this.state = { name: '', 
-                     products: [] }
+                      products : [],
+                     opnameplaats_straat:'',
+                     aantal_overtredingen_snelheid:''}
       // bind class methods, alternative is arrow function: 
       // searchAll = ()=> {} OR <button onClick={(e) => this.handleInputChange(e)}>
       // https://stackoverflow.com/questions/53846717/this-handlechange-this-handlechange-bindthis
@@ -45,7 +47,8 @@ export default class SearchOvertredingen extends Component {
     // multiple inputs
     this.setState({ [event.target.name]: event.target.value })
   }
-
+ 
+  
   tableRows(){  
     return this.state.products.map((row, i) => { 
       console.log(this.state.products) 
@@ -56,14 +59,14 @@ export default class SearchOvertredingen extends Component {
   render() {  
     return (  
        <Container className='App'>  
-        <h1 className='display-4'>Search Pvertreding</h1>
+        <h1 className='display-4'>Search Overtreding</h1>
         <br/>
         <Form className='form-group w-50'>  
           <Col>  
             <FormGroup row>  
               <Label for='name'>opnameplaats straat</Label>  
                 <Input type='text' className='form-control' name='opnameplaats_straat' value={ this.state.opnameplaats_straat } 
-                      onChange={ this.handleInputChange } placeholder='Enter product name' />  
+                      onChange={ this.handleInputChange } placeholder='Enter straat name' />  
             </FormGroup>  
           </Col>  
           <Col>  
@@ -77,7 +80,7 @@ export default class SearchOvertredingen extends Component {
             <FormGroup row>  
               <Label for='name'>Snelheid hoger dan of gelijk</Label>  
                 <Input type='text' className='form-control' name='aantal_overtredingen_snelheid' value={ this.state.aantal_overtredingen_snelheid } 
-                      onChange={ this.handleInputChange } placeholder='Enter product name' />  
+                      onChange={ this.handleInputChange } placeholder='Enter snelheid name' />  
             </FormGroup>  
           </Col>  
           <Col>  

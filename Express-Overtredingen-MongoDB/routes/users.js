@@ -20,13 +20,14 @@ MongoClient.connect('mongodb://localhost:27017', {useUnifiedTopology: true}, (er
    })
   })
   router.post('/searchSpeedNonGTE', (req, res) => {
-    var query = { aantal_overtredingen_snelheid: { $gt: req.body.aantal_overtredingen_snelheid } }
-    db.collection('overtredingen').find(query).toArray((err, result) => {
+    var query = { aantal_overtredingen_snelheid: { $gte: req.body.aantal_overtredingen_snelheid } }
+    db.collection('overtredingen').find( query).toArray((err, result) => {
      if (err) return
      res.json(result)
    })
   })
 })
+
 
 
 
